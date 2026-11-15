@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+<main class="container">
+  <h1>New Entry</h1>
+
+  <form class="form" action="/submit" method="POST">
+    <div class="form-field">
+      <label>Title</label>
+      <input type="text" name="title" required>
+    </div>
+
+    <div class="form-field">
+      <label>Thoughts</label>
+      <textarea name="content" rows="6" required></textarea>
+    </div>
+
+    <button class="btn" type="submit">Save Entry</button>
+  </form>
+</main>
+
+<%- include("partials/footer.ejs") %>

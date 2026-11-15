@@ -1,0 +1,43 @@
+<%- include("partials/header.ejs") %>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Where words slow down</h1>
+                <p>A minimalist space for reflection and writing.</p>
+            </div>
+            <img src="images/ign_Fuji-1.png" alt="Fuji mountain landscape">
+            
+        </section>
+
+        <section class="posts">
+            <% if (posts.length===0) { %>
+                <p class="empty">This space is waiting.</p>
+                <% } else { %>
+                    <h2 class="posts-heading">Recent Entries</h2>
+                    
+                    <% posts.forEach(post=> { %>
+                        <article class="post-card">
+                            <h2>
+                                <%= post.title %>
+                            </h2>
+                            <span class="date">
+                                <%= post.date %>
+                            </span>
+                            <p>
+                                <%= post.content %>
+                            </p>
+
+                            <div class="post-actions">
+                                <a class="btn-muted" href="/edit/<%= post.id %>">Revise</a>
+                                <a class="btn-muted danger" href="/delete/<%= post.id %>">Remove</a>
+                            </div>
+                        </article>
+                        <% }) %>
+                            <% } %>
+        </section>
+
+    </main>
+
+    <%- include("partials/footer.ejs") %>
